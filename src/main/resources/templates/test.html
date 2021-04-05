@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+<body>
+<pre>
+    Please Input Test text
+</pre>
+<form th:action="@{/index}" method="post">
+    <input type="text" name="test" th:value="${test}"/>
+    <input type="submit" value="send"/>
+</form>
+<form th:action="@{/get}" method="post">
+    <input type="number" name="id" th:value="${id}"/>
+    <input type="submit" value="get"/>
+</form>
+<form th:action="@{/all}" method="get">
+    <input type="submit" value="all"/>
+</form>
+<div th:each="message:${messages}">
+    <div th:text="${message}"></div>
+</div>
+</body>
+</html>

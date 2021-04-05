@@ -1,0 +1,32 @@
+spring:
+  session:
+    store-type: redis
+  redis:
+    cluster:
+      nodes:
+        - 172.18.0.2:7000
+#        - 172.18.0.3:7001
+        - 172.18.0.4:7002
+#        - 172.18.0.5:7003
+#        - 172.18.0.6:7004
+        - 172.18.0.7:7005
+#        - 172.18.0.9:7002
+      max-redirects: 5
+    lettuce:
+      cluster:
+        refresh:
+          adaptive: false
+          period: 15
+          dynamic-refresh-sources: false
+  data:
+    redis:
+      repositories:
+        enabled: true
+server:
+  port: 8080
+management:
+  health:
+    redis:
+      enabled: false
+logging:
+  level.io.lettuce.core.cluster: info
